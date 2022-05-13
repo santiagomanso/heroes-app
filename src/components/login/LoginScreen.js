@@ -1,7 +1,24 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const LoginScreen = () => {
-  return <h1>LoginScreen</h1>
+  const navigate = useNavigate()
+
+  const handlerLogin = () => {
+    navigate('/marvel', {
+      replace: true,
+    })
+  }
+
+  return (
+    <div className='container mt-4'>
+      <h1>Login</h1>
+      <hr />
+      <button className='btn btn-secondary' onClick={handlerLogin}>
+        Login
+      </button>
+    </div>
+  )
 }
 
 export default LoginScreen
