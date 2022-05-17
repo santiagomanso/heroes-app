@@ -1,6 +1,10 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import HeroesApp from './HeroesApp'
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-const root = ReactDOM.createRoot(document.getElementById('root'))
-root.render(<HeroesApp />)
+import { HeroesApp } from './HeroesApp';
+
+
+ReactDOM.render(
+    <HeroesApp />,
+  document.getElementById('root')
+);

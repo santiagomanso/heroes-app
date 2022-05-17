@@ -1,10 +1,10 @@
-import { Link, NavLink, useNavigate } from 'react-router-dom'
+import React from 'react'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 export const Navbar = () => {
   const navigate = useNavigate()
 
-  const handlerLogOut = () => {
-    //TODO:
+  const handleLogout = () => {
     navigate('/login', {
       replace: true,
     })
@@ -12,27 +12,42 @@ export const Navbar = () => {
 
   return (
     <nav className='navbar navbar-expand-sm navbar-dark bg-dark'>
-      <Link className='navbar-brand' to='/'>
-        Heroes App
-      </Link>
-
       <div className='navbar-collapse'>
         <div className='navbar-nav'>
-          <NavLink className='nav-item nav-link' to='/marvel'>
+          <NavLink
+            className={({ isActive }) =>
+              'nav-item nav-link ' + (isActive ? 'active' : '')
+            }
+            to='/marvel'
+          >
             Marvel
           </NavLink>
 
-          <NavLink className='nav-item nav-link' to='/dc'>
+          <NavLink
+            className={({ isActive }) =>
+              'nav-item nav-link ' + (isActive ? 'active' : '')
+            }
+            to='/dc'
+          >
             DC
+          </NavLink>
+
+          <NavLink
+            className={({ isActive }) =>
+              'nav-item nav-link ' + (isActive ? 'active' : '')
+            }
+            to='/search'
+          >
+            Search
           </NavLink>
         </div>
       </div>
 
       <div className='navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end'>
-        <span className='nav-item nav-link text-info'> user</span>
-
         <ul className='navbar-nav ml-auto'>
-          <button className='nav-item nav-link btn' onClick={handlerLogOut}>
+          <span className='nav-item nav-link text-info'>USER</span>
+
+          <button className='nav-item nav-link btn' onClick={handleLogout}>
             Logout
           </button>
         </ul>
